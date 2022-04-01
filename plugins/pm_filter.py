@@ -716,9 +716,7 @@ async def auto_filter(client, msg, spoll=False):
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
         await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        buttons = [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
     if spoll:
-        buttons = [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
         await msg.message.delete()
 
 
