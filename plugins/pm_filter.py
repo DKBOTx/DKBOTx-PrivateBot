@@ -94,14 +94,11 @@ async def next_page(bot, query):
             [InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
                                   callback_data="pages")]
-          [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
-        )
+         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")]
-            [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
-        )
+             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
@@ -109,7 +106,6 @@ async def next_page(bot, query):
                 InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
                 InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
-            [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
         )
     try:
         await query.edit_message_reply_markup(
@@ -720,7 +716,9 @@ async def auto_filter(client, msg, spoll=False):
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
         await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        buttons = [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
     if spoll:
+        buttons = [InlineKeyboardButton('🔒 Close', callback_data='close_data')]
         await msg.message.delete()
 
 
