@@ -133,11 +133,9 @@ async def advantage_spoll_choker(bot, query):
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
         if files:
             k = (movie, files, offset, total_results)
-            await auto_filter(bot, query, k)
+            await auto_filter(bot, query)
         else:
-            k = await query.message.edit('𝗔𝗬𝗬𝗢 ! 𝗔𝗧𝗛 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘𝗜𝗟 𝗜𝗟𝗟𝗔 .')
-            await asyncio.sleep(10)
-            await k.delete()
+            return await query.answer("Can't Find In my Database.", show_alert=True)
 
 
 @Client.on_callback_query()
