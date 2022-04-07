@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/EvamariaTG/EvaMaria",
-    "repository": "https://github.com/EvamariaTG/EvaMaria",
+    "website": "https://github.com/DKBOTx/private-bot",
+    "repository": "https://github.com/DKBOTx/private-bot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
